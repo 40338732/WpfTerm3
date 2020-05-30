@@ -24,6 +24,10 @@ namespace WpfApp3.ViewModels
 
             ClearButtonText = "Clear";
             SaveButtonText = "Save";
+
+            NameTextBlock = string.Empty;
+            AgeTextBlock = string.Empty;
+            AddressTextBlock = string.Empty;
         }
     }
 
