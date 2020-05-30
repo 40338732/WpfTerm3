@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace WpfApp3.ViewModels
 {
+    // change 
     public class BaseViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
