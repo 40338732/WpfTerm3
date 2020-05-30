@@ -3,6 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:input="clr-namespace:System.Windows.Input;assembly=PresentationCore"
+       
         xmlns:local="clr-namespace:WpfApp3"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
@@ -28,13 +30,17 @@
         <TextBlock Text="{Binding AgeTextBlock}" Grid.Row="1" Grid.Column="0"
                    HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <TextBox Text="{Binding AgeTextBox}" Grid.Row="1" Grid.Column="1"
-                 HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="150"/>
+                 HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="150"
+                 PreviewTextInput="Tb_PreviewTextInput" input:InputMethod.IsInputMethodEnabled="False"
+                 />
 
         <!-- Row 3-->
         <TextBlock Text="{Binding AddressTextBlock}" Grid.Row="2" Grid.Column="0"
                    HorizontalAlignment="Center" VerticalAlignment="Center" />
         <TextBox Text="{Binding AddressTextBox}" Grid.Row="2" Grid.Column="1"
-                 HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="150"/>
+                 HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="150" 
+                 
+                  />
 
         <!-- Row 4-->
         <Button Content="{Binding ClearButtonText}" Command="{Binding ClearButtonCommand}" Grid.Row="4" Grid.Column="0" Width="100" Height="50"

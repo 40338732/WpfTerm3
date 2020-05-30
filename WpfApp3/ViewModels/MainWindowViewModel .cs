@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using WpfApp3.Commands;
 using System.Windows;
+using WpfApp3.Models;
 
 
 namespace WpfApp3.ViewModels
@@ -46,11 +47,40 @@ namespace WpfApp3.ViewModels
         private void SaveButtonClick()
         {
             MessageBox.Show("Save Button Clicked");
+
+            Person person = new Person();
+
+            if(string.IsNullOrWhiteSpace(NameTextBox) || string.IsNullOrWhiteSpace(AgeTextBox) || string.IsNullOrWhiteSpace(AddressTextBox))
+            {
+                MessageBox.Show("Please fill in all the boxes");
+                return;
+            }
+
+            MessageBox.Show(($"{person.Name}\n{person.Age}\n{person.Address}"));
+
+            person.Name = NameTextBox;
+            person.Age = Convert.ToInt32(AgeTextBox);
+            person.Address = AddressTextBox;
+
+            if(person.Age <0 || person.Age >100)
+            {
+                MessageBox.Show("please enter a age between 0 and 100");
+                return;
+            }
         }
 
         private void ClearButtonClick()
         {
             MessageBox.Show("Clear Button Clicked");
+            NameTextBox = string.Empty;
+            AgeTextBox = string.Empty;
+            AddressTextBox = string.Empty;
+
+            OnChanged(nameof(NameTextBox));
+            OnChanged(nameof(AgeTextBox));
+            OnChanged(nameof(AddressTextBox));
+
+
         }
     }
 
